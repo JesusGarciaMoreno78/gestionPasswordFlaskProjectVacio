@@ -135,7 +135,7 @@ def hasheadapeeper():
             usuario.dni = form.dni.data
             usuario.nombre = form.nombre.data
             usuario.apellidos = form.apellidos.data
-            usuario.set_password(form.password.data + peeper)
+            usuario.set_password(form.password.data + PEEPER)
             usuario.create()
             return redirect(url_for('password.loginhasheadopeeper'))
         except Exception as e:
@@ -151,7 +151,7 @@ def loginhasheadopeeper():
         username = form.username.data
         usuario = Usuario.get_by_username(username)
 
-        if usuario and usuario.check_password(form.password.data + peeper):
+        if usuario and usuario.check_password(form.password.data + PEEPER):
             return redirect(url_for("password.welcome"))
         else:
             error = "Usuario y/o contraseña incorrecta"
